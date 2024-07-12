@@ -1,0 +1,12 @@
+data_directory_base <-  ifelse(Sys.info()["nodename"] == "quebracho" | Sys.info()["nodename"] == "sequoia",
+                               "/home/emlab",
+                               # Otherwise, set the directory for local machines based on the OS
+                               # If using Mac OS, the directory will be automatically set as follows
+                               ifelse(Sys.info()["sysname"]=="Darwin",
+                                      "/Users/Shared/nextcloud/emLab",
+                                      # If using Windows, the directory will be automatically set as follows
+                                      ifelse(Sys.info()["sysname"]=="Windows",
+                                             "G:/Shared\ drives/nextcloud/emLab",
+                                             # If using Linux, will need to manually modify the following directory path based on their user name
+                                             # Replace your_username with your local machine user name
+                                             "/home/lennon-thomas/Nextcloud")))
