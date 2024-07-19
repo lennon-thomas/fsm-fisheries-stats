@@ -89,7 +89,8 @@ plot_shark_mortality <- function(data, gear) {
                          
                          t[is.na(t)] <- 0
                          
-                         t
+                         t %>% 
+                           mask(., fsm)
                        })
   
   # Stack the results
@@ -143,7 +144,7 @@ purse_seine <- plot_shark_mortality(data = rfmo, gear = "purse seine")
 longline <- plot_shark_mortality(data = rfmo, gear = "longline")
 
 # Save outputs
-# ggsave(file.path(project_figure_path, "shark_mortality_purse_seine.png"), purse_seine,
-#        width = 10, height = 8, bg = "white", dpi = 600)
-# ggsave(file.path(project_figure_path, "shark_mortality_longline.png"), longline,
-#        width = 10, height = 8, bg = "white", dpi = 600)
+ggsave(file.path("shark_mortality_purse_seine.png"), purse_seine,
+       width = 10, height = 8, bg = "white", dpi = 600)
+ggsave(file.path("shark_mortality_longline.png"), longline,
+       width = 10, height = 8, bg = "white", dpi = 600)
