@@ -128,7 +128,8 @@ plot_shark_mortality <- function(data, gear) {
                           theme_void() + 
                           theme(strip.text = ggtext::element_markdown(), 
                                 legend.position = "bottom", 
-                                plot.margin = margin(10, 0, 0, 0))
+                                plot.margin = margin(10, 0, 0, 0), 
+                                text = element_text(family = "Helvetica"))
                       })
   
   # Combine the plots and add a title
